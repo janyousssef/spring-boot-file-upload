@@ -6,10 +6,10 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @ServletComponentScan
 @SpringBootApplication
-public class FileuploadexampleApplication {
+public class FileUploadExampleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FileuploadexampleApplication.class, args);
+		SpringApplication.run(FileUploadExampleApplication.class, args);
 	}
 
 }

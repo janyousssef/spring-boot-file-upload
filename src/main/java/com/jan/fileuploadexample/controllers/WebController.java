@@ -10,12 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Slf4j
 public class WebController {
     @PostMapping("/upload")
-    String uploadFile(@RequestBody MultipartFile file){
+    void uploadFile(@RequestBody MultipartFile file){
         log.info("file uploaded {}",file);
         System.out.println(file.getContentType());
-        System.out.println("test");
-        System.out.println("test");
-        System.out.println("test");
-        return "static/index.html";
     }
 }

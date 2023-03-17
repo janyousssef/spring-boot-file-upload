@@ -14,6 +14,6 @@ public class MultipartListener implements ServletRequestListener {
         HttpServletRequest httpServletRequest = (HttpServletRequest) sre.getServletRequest();
         String header = httpServletRequest.getHeader("content-type");
         if (header!= null && header.startsWith("multipart/form-data;"))
-            log.info("file upload started");
+            log.info("from listener: file upload started");
     }
 }

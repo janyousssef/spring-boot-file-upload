@@ -2,11 +2,12 @@ package com.jan.fileuploadexample.listeners;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 
-@WebFilter(value = "/upload")
+@WebFilter(urlPatterns = "/upload")
 @Slf4j
 public class MulipartFilter implements Filter {
     @Override
@@ -16,7 +17,10 @@ public class MulipartFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        log.info("from filter: file upload started");
+        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+        String header = httpServletRequest.getHeader("content-type");
+        if (header != null && header.startsWith("multipart/form-data;"))
+            log.info("from filter: file upload started");
         chain.doFilter(request, response);
     }
 
